@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/style.css">
+    <script src="../js/script.js" async></script>
+    <title>Adivinhe o Número em Libras</title>
+</head>
+<body>
+    <div class="flex-container">
+        <div id="divNumero"></div>
+        <div id="menuChutes">  
+            <p id="chancesRestantes"></p>
+            <form id="formChute">
+                <input id="inputNum" type="number">
+                <input id="btnForm" type="submit" value="Chutar">
+            </form>
+            <div id="divTentativas"></div>
+            <p id="result"></p>
+            <div id="btnRestart">
+                <button id="btnDesistir" onclick="desistir()">Desistir</button>
+                <a href="../index.html"><button id="btnVoltar">Trocar Dificuldade</button></a>
+            </div>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

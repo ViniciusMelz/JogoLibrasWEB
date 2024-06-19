@@ -1,0 +1,146 @@
+body{
+    margin: 0;
+}
+
+.flex-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(145deg, rgb(51, 51, 51) 0%, rgb(32, 32, 32) 100%);
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 40%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: inter;
+    gap: 6px;
+}
+
+h2{
+    margin-top: 50px;
+    margin-bottom: -10px;
+    font-size: 15px;
+}
+
+button{
+    font-family: inter;
+    font-size: 20px;
+    height: 50px;
+    width: 250px;
+    background-color: black;
+    color: white; 
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(26, 26, 26);
+}
+
+#divNumero{
+    display: flex;
+    flex-direction: row;
+}
+
+#imgNum{
+    height: 20vh;
+    width: auto;
+}
+
+#tentativa{
+    display: flex;
+    height: 5vh;
+    width: max-content;
+    padding: 5px 20px;
+    margin: 5px;
+    background-color: rgb(138, 138, 138);
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+    margin-left: 10px;
+}
+
+#numTentativa{
+    width: 1vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10vh;
+    padding-right: 10vh;
+}
+
+#iconeTentativa{
+    height: 4vh;
+    width: auto;
+}
+
+#iconeTentativaCerto{
+    height: 4vh;
+    width: auto;
+    margin-left: -7px;
+}
+
+#btnRestart{
+    gap: 10px;
+    display: flex;
+}
+
+#divNumero{
+    display: flex;
+    gap: 10px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+#menuChutes{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 20px;
+    font-family: inter;
+}
+
+#chancesRestantes{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#inputNum{
+    width: 30vh;
+    height: 30px;
+    font-size: 22px;
+    border-radius: 5px;
+}
+
+#btnForm{
+    font-family: inter;
+    font-size: 20px;
+    height: 35px;
+    width: 15vh;
+    background-color: black;
+    color: white; 
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#btnForm:hover{
+    background-color: rgb(26, 26, 26);
+}
