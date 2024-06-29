@@ -151,29 +151,38 @@ function verificaNum(numero){
         textChances.parentElement.removeChild(textChances);
         form.parentElement.removeChild(form);
         textResult.innerText = "Você desistiu, número certo é: " + num;
-        document.getElementById("btnRestart").innerHTML = "<a href='jogo.html'><button>Tentar Novamente</button></a><a href='../index.html'><button id='btnVoltar'>Trocar Dificuldade</button></a>";
+        document.getElementById("btnRestart").innerHTML = "<a href='jogo.html'><button>Tentar Novamente</button></a><a href='../index.html' onclick='restartAjuda()'><button id='btnVoltar'>Trocar Dificuldade</button></a>";
     }else if(num == numero){
         var novaDiv = document.createElement("div");
-        novaDiv.innerHTML = "<div id='tentativa' style='padding-right: 10px;'><img src='../images/CertoIcone.png' id='iconeTentativa'><div id='numTentativa'><p>" + numero + "</p></div><img src='../images/CertoIcone.png' id='iconeTentativaCerto'></div>";
+        if(localStorage.getItem("ajuda") == "true" || localStorage.getItem("ajuda") == null){
+            novaDiv.innerHTML = "<div id='tentativa' style='padding-right: 10px;'><img src='../images/CertoIcone.png' id='iconeTentativa'><div id='numTentativa'><p>" + numero + "</p></div><img src='../images/CertoIcone.png' id='iconeTentativaCerto'></div>";
+        }else{
+            novaDiv.innerHTML = "<div id='tentativa' style='padding-right: 10px;'><img src='../images/CertoIcone.png' id='iconeTentativa'><div id='numTentativa'><p>" + numero + "</p></div><img src='../images/CertoIcone.png' id='iconeTentativa'></div>";
+        }
         document.getElementById("divTentativas").appendChild(novaDiv);
         textChances.parentElement.removeChild(textChances);
         form.parentElement.removeChild(form);
         textResult.innerText = "Acertou! O Número realmente é o " + num + "!!!";
-        document.getElementById("btnRestart").innerHTML = "<a href='jogo.html'><button>Jogar Novamente</button></a><a href='../index.html'><button id='btnVoltar'>Trocar Dificuldade</button></a>";
+        document.getElementById("btnRestart").innerHTML = "<a href='jogo.html'><button>Jogar Novamente</button></a><a href='../index.html' onclick='restartAjuda()'><button id='btnVoltar'>Trocar Dificuldade</button></a>";
     }else{
         var novaDiv = document.createElement("div");
-        if(numMaior){
-            novaDiv.innerHTML = "<div id='tentativa'><img src='../images/ErradoIcone.png' id='iconeTentativa'><div id='numTentativa'><p>" + numero + "</p></div><img src='../images/Maior.png' id='iconeTentativa'></div>";
+        if(localStorage.getItem("ajuda") == "true" || localStorage.getItem("ajuda") == null){
+            if(numMaior){
+                novaDiv.innerHTML = "<div id='tentativa'><img src='../images/ErradoIcone.png' id='iconeTentativa'><div id='numTentativa'><p>" + numero + "</p></div><img src='../images/Maior.png' id='iconeTentativa'></div>";
+            }else{
+                novaDiv.innerHTML = "<div id='tentativa'><img src='../images/ErradoIcone.png' id='iconeTentativa'><div id='numTentativa'><p>" + numero + "</p></div><img src='../images/Menor.png' id='iconeTentativa'></div>";
+            }
         }else{
-            novaDiv.innerHTML = "<div id='tentativa'><img src='../images/ErradoIcone.png' id='iconeTentativa'><div id='numTentativa'><p>" + numero + "</p></div><img src='../images/Menor.png' id='iconeTentativa'></div>";
+            novaDiv.innerHTML = "<div id='tentativa'><img src='../images/ErradoIcone.png' id='iconeTentativa'><div id='numTentativa'><p>" + numero + "</p></div><img src='../images/ErradoIcone.png' id='iconeTentativa'></div>";
         }
+        
         document.getElementById("divTentativas").appendChild(novaDiv);
         textResult.innerText = "Errou!";
         if(numChances <= 1){
             textChances.parentElement.removeChild(textChances);
             form.parentElement.removeChild(form);
             textResult.innerText = "Acabaram as chances, você perdeu, número certo é: " + num;
-            document.getElementById("btnRestart").innerHTML = "<a href='jogo.html'><button>Tentar Novamente</button></a><a href='../index.html'><button id='btnVoltar'>Trocar Dificuldade</button></a>";
+            document.getElementById("btnRestart").innerHTML = "<a href='jogo.html'><button>Tentar Novamente</button></a><a href='../index.html' onclick='restartAjuda()'><button id='btnVoltar'>Trocar Dificuldade</button></a>";
         }
         numChances = numChances - 1;
         textChances.innerText = "Chances Restantes: " + numChances;
@@ -199,4 +208,18 @@ function salvarImpossivel(){
 function desistir(){
     desistiu = true;
     verificaNum(0);
+}
+
+function ativaDesativaAjuda(){
+    console.log(localStorage.getItem("ajuda"));
+    if(localStorage.getItem("ajuda") == "true" || localStorage.getItem("ajuda") == null){
+        localStorage.setItem("ajuda", "false");
+    }else{
+        localStorage.setItem("ajuda", "true");
+    }
+    console.log(localStorage.getItem("ajuda"));
+}
+
+function restartAjuda(){
+    localStorage.setItem("ajuda", "true");
 }

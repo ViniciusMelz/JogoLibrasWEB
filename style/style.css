@@ -144,3 +144,20 @@ button:hover{
 #btnForm:hover{
     background-color: rgb(26, 26, 26);
 }
+
+#ajuda{
+    width: 100%;
+    float: right;
+    padding-left: 75%;
+    padding-top: 20px;
+    font-family: inter;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#checkboxAjuda{
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
